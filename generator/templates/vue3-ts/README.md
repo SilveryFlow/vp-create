@@ -14,6 +14,6 @@ vp run test
 vp run format:check
 ```
 
-测试配置位于 vite.config.ts；.oxlintrc.json 和 .oxfmtrc.json 分别维护检查与格式规则。单页模板目前无业务测试，因此允许空测试集。
+测试、Oxlint 和格式规则统一维护在 vite.config.ts。单页模板目前无业务测试，因此允许空测试集。
 
 本目录是创建器内置模板的唯一源码。创建命令见 ../../../../README.md。已有 .env 配置保留，使用前按项目检查代理地址。

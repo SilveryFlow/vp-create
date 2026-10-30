@@ -4,18 +4,18 @@
  * @returns {string}
  */
 export const toCamelCase = (str: string): string => {
-  return str.toLowerCase().replace(/[-_](.)/g, (_, c) => c.toUpperCase());
-};
+  return str.toLowerCase().replace(/[-_](.)/g, (_, c) => c.toUpperCase())
+}
 
 export interface DateInfo {
   /* 日期对象 */
-  dateObj: Date;
+  dateObj: Date
   /* 年份 */
-  year: number;
+  year: number
   /* 月份 */
-  month: number;
+  month: number
   /* 日期 */
-  day: number;
+  day: number
 }
 /**
  * 把xxx年xxx月xxx日的字符串转为日期对象
@@ -23,14 +23,14 @@ export interface DateInfo {
  * @returns {DateInfo|null} 包含日期对象和年月日的结构对象,如果格式不匹配则返回 null
  */
 export const stringToDate = (str: string): DateInfo | null => {
-  if (!str || typeof str !== "string") return null;
-  const match = str.match(/(\d+)年(\d+)月(\d+)日/);
-  if (!match) return null;
-  const [, year, month, day] = match;
+  if (!str || typeof str !== 'string') return null
+  const match = str.match(/(\d+)年(\d+)月(\d+)日/)
+  if (!match) return null
+  const [, year, month, day] = match
   return {
     dateObj: new Date(+year!, +month! - 1, +day!),
     year: +year!,
     month: +month!,
     day: +day!,
-  };
-};
+  }
+}

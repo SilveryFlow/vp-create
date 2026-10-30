@@ -9,6 +9,5 @@
     "source.fixAll": "explicit"
   },
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "oxc.oxc-vscode",
-  "oxc.fmt.configPath": ".oxfmtrc.json"
+  "editor.defaultFormatter": "oxc.oxc-vscode"
 }

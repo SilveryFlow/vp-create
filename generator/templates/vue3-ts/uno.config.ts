@@ -6,7 +6,7 @@ import {
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
-} from "unocss";
+} from 'unocss'
 
 export default defineConfig({
   // 1. 预设 (Presets)
@@ -34,6 +34,6 @@ export default defineConfig({
 
   // 3. 自定义规则或快捷方式
   shortcuts: {
-    "flex-center": "flex justify-center items-center",
+    'flex-center': 'flex justify-center items-center',
   },
-});
+})

@@ -5,20 +5,20 @@ export function debounce<T extends (...args: unknown[]) => unknown>(
   fn: T,
   { delay = 200, immediate = true }: { delay?: number; immediate?: boolean } = {},
 ) {
-  let timer: ReturnType<typeof setTimeout> | null = null;
-  let isImmediate = immediate;
+  let timer: ReturnType<typeof setTimeout> | null = null
+  let isImmediate = immediate
 
   return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
     if (isImmediate) {
-      fn.apply(this, args);
-      isImmediate = false;
-      return;
+      fn.apply(this, args)
+      isImmediate = false
+      return
     }
-    if (timer) clearTimeout(timer);
+    if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
-      fn.apply(this, args);
-    }, delay);
-  };
+      fn.apply(this, args)
+    }, delay)
+  }
 }
 
 /**
@@ -28,21 +28,21 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
   fn: T,
   { delay = 200, immediate = true }: { delay?: number; immediate?: boolean } = {},
 ) {
-  let isImmediate = immediate;
-  let timer: ReturnType<typeof setTimeout> | null = null;
+  let isImmediate = immediate
+  let timer: ReturnType<typeof setTimeout> | null = null
 
   return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
     if (isImmediate) {
-      fn.apply(this, args);
-      isImmediate = false;
-      return;
+      fn.apply(this, args)
+      isImmediate = false
+      return
     }
-    if (timer) return;
+    if (timer) return
     timer = setTimeout(() => {
-      fn.apply(this, args);
-      timer = null;
-    }, delay);
-  };
+      fn.apply(this, args)
+      timer = null
+    }, delay)
+  }
 }
 
 /**
@@ -52,28 +52,28 @@ export function rAFInterval(
   fn: () => void,
   { interval = 1000, immediate = false }: { interval?: number; immediate?: boolean } = {},
 ): () => void {
-  let timer: number | null = null;
-  let lastTime = performance.now();
-  let isStopped = false;
+  let timer: number | null = null
+  let lastTime = performance.now()
+  let isStopped = false
 
   const loop = (timestamp: number) => {
-    if (isStopped) return;
-    timer = requestAnimationFrame(loop);
+    if (isStopped) return
+    timer = requestAnimationFrame(loop)
     if (timestamp - lastTime >= interval) {
-      lastTime = timestamp;
-      fn();
+      lastTime = timestamp
+      fn()
     }
-  };
-
-  if (immediate) {
-    fn();
-    lastTime = performance.now();
   }
 
-  timer = requestAnimationFrame(loop);
+  if (immediate) {
+    fn()
+    lastTime = performance.now()
+  }
+
+  timer = requestAnimationFrame(loop)
 
   return () => {
-    isStopped = true;
-    if (timer !== null) cancelAnimationFrame(timer);
-  };
+    isStopped = true
+    if (timer !== null) cancelAnimationFrame(timer)
+  }
 }

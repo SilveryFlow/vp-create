@@ -7,13 +7,13 @@
  */
 export const getCyclinSlice = <T>(array: T[], start: number, count: number): T[] => {
   if (array.length <= count) {
-    return array;
+    return array
   }
-  const len = array.length;
-  const end = start + count;
+  const len = array.length
+  const end = start + count
   if (end <= len) {
-    return array.slice(start, end);
+    return array.slice(start, end)
   } else {
-    return [...array.slice(start), ...array.slice(0, end - len)];
+    return [...array.slice(start), ...array.slice(0, end - len)]
   }
-};
+}
