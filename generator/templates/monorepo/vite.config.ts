@@ -16,10 +16,7 @@ export default defineConfig({
   },
   lint: {
     plugins: ['eslint', 'typescript', 'unicorn', 'oxc', 'vue', 'vitest'],
-    jsPlugins: [
-      { name: 'vite-plus', specifier: 'vite-plus/oxlint-plugin' },
-      './lint/workspace.mjs',
-    ],
+    jsPlugins: [{ name: 'vite-plus', specifier: 'vite-plus/oxlint-plugin' }],
     // TS-Go 尚不能解析本模板的 Vue SFC 导入；完整类型检查由 tsc/vue-tsc 执行。
     options: { typeAware: true, typeCheck: false },
     categories: { correctness: 'error' },
@@ -40,7 +37,6 @@ export default defineConfig({
       'vitest/no-disabled-tests': 'error',
       'vitest/valid-expect': 'error',
       'vite-plus/prefer-vite-plus-imports': 'error',
-      'workspace/no-private-imports': 'error',
     },
   },
   staged: {

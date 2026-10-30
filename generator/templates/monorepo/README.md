@@ -65,10 +65,22 @@ vp run changeset 记录版本变化，vp run release:version 更新版本；包�
 
 ## VP 检查边界
 
-check 使用 VP 原生 Oxfmt、Oxlint 和 JS 插件；不安装独立 ESLint。workspace/no-private-imports 通过 vite-plus/lint/plugins 定义，拦截跨包私有 src 的静态导入、再导出和字符串动态导入。@starter/ui/uno-source 是已公开的例外入口。
+check 使用 VP 原生 Oxfmt 和 Oxlint，不安装独立 ESLint。包的公开入口由 package.json 的 exports 定义，不额外维护自定义跨包边界插件。
 
 当前 VP 1.4.0 的 TS-Go 会对 Vue SFC 导入报告 TS2307，因此显式保留 typeAware，关闭 typeCheck；完整 TS/Vue 类型由 type-check 和 vue-tsc 负责，不添加宽泛 Vue 模块声明。JS 插件当前不支持 Vue 自定义解析器，不能把 Vue 脚本规则描述成完整模板 lint。
 
 check 只先构建依赖库；应用 type-check 和 test 同样只构建依赖，不强制应用自身打包。verify 顺序执行 type-check、test、stylelint、check。staged 使用无文件参数的 vp check 统一检查，避免 Windows 命令长度限制，保持 format/lint 同一入口。
 
 构建缓存保留自动读写追踪并显式保留生成的 components.d.ts。删除产物后的缓存命中、恢复及修改源文件失效应一起验证，不能只以构建退出码判断缓存正确。
+
+## Vitest 配置位置
+
+测试配置统一放在 Vite+ 配置的 test 字段，不另建 vitest.config.ts。测试 API 从 vite-plus/test 导入。
+
+| 测试对象       | 配置位置                                                                  | 环境与入口                                       |
+| -------------- | ------------------------------------------------------------------------- | ------------------------------------------------ |
+| web/admin 应用 | packages/vite-config/src/vue-app.ts，由 apps/*/vite.config.ts 调用        | jsdom；src/**/**tests**/*.test.ts；maxWorkers: 2 |
+| UI 组件        | packages/ui/vite.config.ts，合并 packages/vite-config/src/vue-library.ts  | jsdom；运行组件点击和禁用行为测试                |
+| 工具库         | packages/utils/vite.config.ts 调用 packages/vite-config/src/ts-library.ts | 默认 node，可通过 environment 参数改为 jsdom     |
+
+根 vp run test 按任务图执行各包 vp test run。vp run test:watch 启动各测试包的持续监听；指定单包可运行 vp run @starter/ui#test 或 vp run @starter/utils#test。Playwright 配置位于根 playwright.config.ts，与 Vitest 单测分开运行。
