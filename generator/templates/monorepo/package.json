@@ -29,8 +29,9 @@
     "commit:check": "vp exec commitlint",
     "test:watch": "vp run --parallel -r test:watch",
     "verify:hooks": "node scripts/verify-hooks.mjs",
-    "check": "vp run --filter \"@starter/web^...\" build && vp check",
-    "check:fix": "vp run --filter \"@starter/web^...\" build && vp check --fix"
+    "check": "vp run build:dependencies && vp check",
+    "check:fix": "vp run build:dependencies && vp check --fix",
+    "build:dependencies": "vp run --filter \"./packages/*\" build"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",

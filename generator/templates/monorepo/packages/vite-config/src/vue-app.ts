@@ -4,11 +4,23 @@ import { lazyPlugins, loadEnv, mergeConfig, type ConfigEnv, type UserConfig } fr
 import unoConfig from '@starter/uno-config'
 import { buildCache, dependencyBuilds } from './internal/tasks.ts'
 
+export interface VueAppOptions {
+  /** 仅扫描应用显式声明、且通过 uno-source 公开的工作区包。 */
+  unoSourcePackages?: string[]
+}
+
 /** 应用共用插件与任务；只由应用声明自己的差异。 */
-export function createVueAppConfig(root: string, env: ConfigEnv, overrides: UserConfig = {}) {
+export function createVueAppConfig(
+  root: string,
+  env: ConfigEnv,
+  options: VueAppOptions = {},
+  overrides: UserConfig = {},
+) {
   const variables = loadEnv(env.mode, root)
   const requireFromApp = createRequire(resolve(root, 'package.json'))
-  const uiSource = dirname(requireFromApp.resolve('@starter/ui/uno-source'))
+  const sharedSources = (options.unoSourcePackages ?? []).map(name =>
+    dirname(requireFromApp.resolve(`${name}/uno-source`)),
+  )
   return mergeConfig(
     {
       root,
@@ -38,7 +50,7 @@ export function createVueAppConfig(root: string, env: ConfigEnv, overrides: User
             content: {
               filesystem: [
                 resolve(root, 'src/**/*.{vue,ts}'),
-                resolve(uiSource, '**/*.{vue,ts}'),
+                ...sharedSources.map(directory => resolve(directory, '**/*.{vue,ts}')),
               ].map(file => file.replaceAll('\\', '/')),
             },
           }),

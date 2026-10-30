@@ -5,3 +5,5 @@
 运行 vp install 更新锁文件，再运行 vp run --filter @starter/新名称^... build 和 vp run @starter/新名称#dev。后端代理只通过 VITE_API_TARGET 配置，不把服务地址硬编码进公共 Vite 配置。
 
 应用业务不同后按各自功能组织 views 和模块组件，保持 App.vue 为薄入口；示例 Pinia 用于跨路由状态，单页局部状态不必移入 store。
+
+共享 createVueAppConfig 的第三个参数为应用选项。例如 createVueAppConfig(root, env, { unoSourcePackages: ['@starter/ui'] })；不使用共享 UI 时省略或传空数组，不会解析 @starter/ui。第四个参数可传原生 Vite 覆盖配置。应用新增后加入根 tsconfig references，并更新 Playwright 项目和 CI 验证清单。新共享包接入见 new-package.md。
