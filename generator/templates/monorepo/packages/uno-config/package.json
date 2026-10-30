@@ -1,0 +1,19 @@
+{
+  "name": "@starter/uno-config",
+  "version": "0.1.0",
+  "private": true,
+  "files": [
+    "src"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "unocss": "catalog:"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  }
+}

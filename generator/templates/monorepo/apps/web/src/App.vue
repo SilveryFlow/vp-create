@@ -1,13 +1,9 @@
-<script setup lang="ts">
-import { shallowRef } from 'vue'
-import { StarterButton } from '@starter/ui'
-import { sum } from '@starter/utils'
-const count = shallowRef(0)
-</script>
-
 <template>
-  <main>
-    <h1>Vue 3 + Vite+ Monorepo</h1>
-    <StarterButton :label="'计数：' + count" @activate="count = sum(count, 1)" />
+  <main class="mx-auto max-w-3xl p-8">
+    <h1>应用示例</h1>
+    <nav class="mb-6 flex gap-4">
+      <RouterLink to="/">首页</RouterLink><RouterLink to="/about">关于</RouterLink>
+    </nav>
+    <RouterView />
   </main>
 </template>

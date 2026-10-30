@@ -1,2 +1,2 @@
-import { defineConfig } from 'vite-plus'
-export default defineConfig({ test: { include: ['src/**/*.test.ts'] } })
+import { createTsLibraryConfig } from '@starter/vite-config/ts-library'
+export default createTsLibraryConfig()

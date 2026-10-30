@@ -1,0 +1,3 @@
+set -e
+vp staged --concurrent 2 --relative
+vp run type-check

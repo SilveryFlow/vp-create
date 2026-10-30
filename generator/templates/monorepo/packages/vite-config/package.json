@@ -1,0 +1,28 @@
+{
+  "name": "@starter/vite-config",
+  "version": "0.1.0",
+  "private": true,
+  "files": [
+    "src"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./vue-app": "./src/vue-app.ts",
+    "./vue-library": "./src/vue-library.ts",
+    "./ts-library": "./src/ts-library.ts"
+  },
+  "dependencies": {
+    "@starter/uno-config": "workspace:*",
+    "@vitejs/plugin-vue": "catalog:",
+    "unocss": "catalog:",
+    "unplugin-vue-components": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-lib-inject-css": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  }
+}

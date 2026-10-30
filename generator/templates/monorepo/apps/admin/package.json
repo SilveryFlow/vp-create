@@ -1,0 +1,23 @@
+{
+  "name": "@starter/admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@starter/ui": "workspace:*",
+    "@starter/utils": "workspace:*",
+    "element-plus": "catalog:",
+    "pinia": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  },
+  "devDependencies": {
+    "@starter/vite-config": "workspace:*",
+    "@vue/test-utils": "catalog:",
+    "@vue/tsconfig": "catalog:",
+    "jsdom": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

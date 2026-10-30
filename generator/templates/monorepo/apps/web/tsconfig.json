@@ -1,4 +1,8 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": ["src/**/*.ts", "src/**/*.vue", "vite.config.ts"]
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": ["env.d.ts", "src/**/*.ts", "src/**/*.vue", "vite.config.ts"],
+  "compilerOptions": {
+    "types": ["node", "vite-plus/client"],
+    "allowImportingTsExtensions": true
+  }
 }
