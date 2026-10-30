@@ -1,14 +1,24 @@
 import { defineConfig } from '@playwright/test'
+
+const applications = [
+  { name: 'web', port: 4173 },
+  { name: 'admin', port: 4174 },
+]
+
 export default defineConfig({
   testDir: './e2e',
   workers: 1,
   retries: process.env.CI ? 1 : 0,
   reporter: 'list',
-  use: { baseURL: 'http://127.0.0.1:4173', trace: 'retain-on-failure' },
+  use: { trace: 'retain-on-failure' },
   outputDir: '.artifacts/playwright',
-  webServer: {
-    command: 'vp run @starter/web#preview --host 127.0.0.1 --port 4173 --strictPort',
-    url: 'http://127.0.0.1:4173',
+  projects: applications.map(app => ({
+    name: app.name,
+    use: { baseURL: `http://127.0.0.1:${app.port}` },
+  })),
+  webServer: applications.map(app => ({
+    command: `vp run @starter/${app.name}#preview --host 127.0.0.1 --port ${app.port} --strictPort`,
+    url: `http://127.0.0.1:${app.port}`,
     reuseExistingServer: !process.env.CI,
-  },
+  })),
 })
