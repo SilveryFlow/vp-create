@@ -97,6 +97,10 @@ catalogs:
 overrides:
   vite@*: npm:@voidzero-dev/vite-plus-core@1.4.0
   vitest@*: 5.0.5
+  ini@<1.3.6: 1.3.8
+  dot-prop@>=5.0.0 <5.1.1: 5.3.0
+  ansi-regex@>=4.0.0 <4.1.1: 4.1.1
+  ansi-regex@>=5.0.0 <5.0.1: 5.0.1
 
 importers:
 
@@ -1724,17 +1728,9 @@ packages:
     resolution: {integrity: sha512-Cg3ymMAdN10wOk/VYfLV7KCQyv7EDirJ64500sU7n9UlmioEtDuU5Gd+hj73hXSU/ex7tHJSssmyftDdkMLO8Q==}
     engines: {node: '>=8'}
 
-  ansi-regex@4.0.0:
-    resolution: {integrity: sha512-iB5Dda8t/UqpPI/IjsejXu5jOGDrzn41wJyljwPH65VCIbk6+1BzFIMJGFwTNrYXT1CrD+B4l19U7awiQ8rk7w==}
+  ansi-regex@4.1.1:
+    resolution: {integrity: sha512-ILlv4k/3f6vfQ4OoP2AGvirOktlQ98ZEL1k9FaQjxa3L1abBgbuTDAdPOpvbGncC0BTVQrl+OM8xZGK6tWXt7g==}
     engines: {node: '>=6'}
-
-  ansi-regex@4.1.0:
-    resolution: {integrity: sha512-1apePfXM1UOSqw0o9IiFAovVz9M5S1Dg+4TrDwfMewQ6p/rmMueb7tWZjQ1rx4Loy1ArBggoqGpfqqdI4rondg==}
-    engines: {node: '>=6'}
-
-  ansi-regex@5.0.0:
-    resolution: {integrity: sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==}
-    engines: {node: '>=8'}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -2089,8 +2085,8 @@ packages:
   domutils@3.0.1:
     resolution: {integrity: sha512-z08c1l761iKhDFtfXO04C7kTdPBLi41zwOZl00WS8b5eiaebNpY00HKbztwBq+e3vyqWNwWF3mP9YLUeqIrF+Q==}
 
-  dot-prop@5.1.0:
-    resolution: {integrity: sha512-n1oC6NBF+KM9oVXtjmen4Yo7HyAVWV2UUl50dCYJdw2924K6dX9bf9TTTWaKtYlRn0FEtxG27KS80ayVLixxJA==}
+  dot-prop@5.3.0:
+    resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
     engines: {node: '>=8'}
 
   editorconfig@3.0.2:
@@ -2379,13 +2375,8 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  ini@1.3.4:
-    resolution: {integrity: sha512-VUA7WAWNCWfm6/8f9kAb8Y6iGBWnmCfgFS5dTrv2C38LLm1KUmpY388mCVCJCsMKQomvOQ1oW8/edXdChd9ZXQ==}
-    deprecated: Please update to ini >=1.3.6 to avoid a prototype pollution issue
-
-  ini@1.3.5:
-    resolution: {integrity: sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==}
-    deprecated: Please update to ini >=1.3.6 to avoid a prototype pollution issue
+  ini@1.3.8:
+    resolution: {integrity: sha512-JV/yugV2uzW5iMRSiZAyDtQd+nxtUnjeLt0acNdw98kKLrvuRVyB80tsREOE7yvGVgalhZ6RNXCmEHkUKBKxew==}
 
   ini@6.0.0:
     resolution: {integrity: sha512-IBTdIkzZNOpqm7q3dRqJvMaldXjDHWkEDfrwGEQTs5eaQMWV+djAhR+wahyNNMAa+qpbDUhBMVt4ZKNwpPm7xQ==}
@@ -4830,11 +4821,7 @@ snapshots:
     dependencies:
       type-fest: 0.5.2
 
-  ansi-regex@4.0.0: {}
-
-  ansi-regex@4.1.0: {}
-
-  ansi-regex@5.0.0: {}
+  ansi-regex@4.1.1: {}
 
   ansi-regex@5.0.1: {}
 
@@ -5019,7 +5006,7 @@ snapshots:
   compare-func@2.0.0:
     dependencies:
       array-ify: 1.0.0
-      dot-prop: 5.1.0
+      dot-prop: 5.3.0
 
   concat-map@0.0.1: {}
 
@@ -5029,7 +5016,7 @@ snapshots:
 
   config-chain@1.1.13:
     dependencies:
-      ini: 1.3.4
+      ini: 1.3.8
       proto-list: 1.2.4
 
   consola@3.4.2: {}
@@ -5173,7 +5160,7 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 5.0.2
 
-  dot-prop@5.1.0:
+  dot-prop@5.3.0:
     dependencies:
       is-obj: 2.0.0
 
@@ -5373,13 +5360,13 @@ snapshots:
     dependencies:
       expand-tilde: 2.0.2
       homedir-polyfill: 1.0.3
-      ini: 1.3.4
+      ini: 1.3.8
       is-windows: 1.0.2
       which: 1.2.14
 
   global-prefix@3.0.0:
     dependencies:
-      ini: 1.3.5
+      ini: 1.3.8
       kind-of: 6.0.3
       which: 1.3.1
 
@@ -5463,9 +5450,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  ini@1.3.4: {}
-
-  ini@1.3.5: {}
+  ini@1.3.8: {}
 
   ini@6.0.0: {}
 
@@ -6032,7 +6017,7 @@ snapshots:
   pretty-format@27.0.2:
     dependencies:
       '@jest/types': 27.0.2
-      ansi-regex: 5.0.0
+      ansi-regex: 5.0.1
       ansi-styles: 5.0.0
       react-is: 17.0.1
 
@@ -6159,15 +6144,15 @@ snapshots:
 
   strip-ansi@5.0.0:
     dependencies:
-      ansi-regex: 4.0.0
+      ansi-regex: 4.1.1
 
   strip-ansi@5.2.0:
     dependencies:
-      ansi-regex: 4.1.0
+      ansi-regex: 4.1.1
 
   strip-ansi@6.0.0:
     dependencies:
-      ansi-regex: 5.0.0
+      ansi-regex: 5.0.1
 
   strip-ansi@6.0.1:
     dependencies:

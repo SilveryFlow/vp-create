@@ -31,7 +31,11 @@
     "verify:hooks": "node scripts/verify-hooks.mjs",
     "check": "vp run build:dependencies && vp check",
     "check:fix": "vp run build:dependencies && vp check --fix",
-    "build:dependencies": "vp run --filter \"./packages/*\" build"
+    "build:dependencies": "vp run --filter \"./packages/*\" build",
+    "audit": "vp pm audit",
+    "deps:outdated": "vp pm outdated",
+    "deps:approve": "vp pm approve-builds",
+    "audit:official": "vp pm audit -- --registry=https://registry.npmjs.org"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",

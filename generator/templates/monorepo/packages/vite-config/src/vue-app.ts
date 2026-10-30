@@ -65,7 +65,12 @@ export function createVueAppConfig(
           ? { '/api': { target: variables.VITE_API_TARGET, changeOrigin: true } }
           : {},
       },
-      test: { environment: 'jsdom', include: ['src/**/__tests__/*.test.ts'], maxWorkers: 2 },
+      test: {
+        fsModuleCachePath: resolve(root, 'node_modules/.vite/vitest-modules'),
+        environment: 'jsdom',
+        include: ['src/**/__tests__/*.test.ts'],
+        maxWorkers: 2,
+      },
       run: {
         tasks: {
           dev: { command: 'vp dev', cache: false },
