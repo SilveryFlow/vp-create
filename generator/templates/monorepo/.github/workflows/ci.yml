@@ -34,3 +34,12 @@ jobs:
           include-hidden-files: true
           if-no-files-found: ignore
           retention-days: 7
+
+      - run: vp run release:archive
+      - uses: actions/upload-artifact@v4
+        with:
+          name: application-delivery
+          path: .artifacts/delivery/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14

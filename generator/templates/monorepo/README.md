@@ -84,3 +84,5 @@ check 只先构建依赖库；应用 type-check 和 test 同样只构建依赖�
 | 工具库         | packages/utils/vite.config.ts 调用 packages/vite-config/src/ts-library.ts | 默认 node，可通过 environment 参数改为 jsdom     |
 
 根 vp run test 按任务图执行各包 vp test run。vp run test:watch 启动各测试包的持续监听；指定单包可运行 vp run @starter/ui#test 或 vp run @starter/utils#test。Playwright 配置位于根 playwright.config.ts，与 Vitest 单测分开运行。
+
+依赖维护与脚本审批见 docs/dependencies.md，版本记录和交付验收见 docs/releases.md。vp run artifacts:check 检查公开出口；vp run release:archive 构建并输出应用归档、版本清单和 SHA-256。

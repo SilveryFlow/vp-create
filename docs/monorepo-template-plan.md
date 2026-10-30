@@ -10,7 +10,7 @@
 | S2 双应用 E2E | web/admin 两个 Playwright project，共用行为用例                               | 两应用计数、路由切换与刷新通过                          | 已完成 |
 | S3 CI 诊断    | HTML 报告、失败截图及 trace 上传；并发取消与 forbidOnly                       | 本地报告生成，工作流路径对应                            | 已完成 |
 | S4 依赖维护   | 生成工程 Dependabot；安装脚本审批；审计入口与说明                             | 冻结安装成功；核实依赖脚本；如实记录审计结果            | 已完成 |
-| S5 版本交付   | Changesets 约定；应用版本、产物、哈希归档；公开出口检查                       | 归档可解包、hash 对应、JS/类型/CSS 存在，生成器回归通过 | 待执行 |
+| S5 版本交付   | Changesets 约定；应用版本、产物、哈希归档；公开出口检查                       | 归档可解包、hash 对应、JS/类型/CSS 存在，生成器回归通过 | 已完成 |
 
 ## 验证
 
@@ -30,3 +30,5 @@
 - S3：双应用 E2E 通过并生成 HTML；故意失败确认 trace.zip、PNG 截图及报告生成；CI 上传路径一致，远程尚未运行。
 
 - S4：冻结安装与构建通过；官方审计 high 从 4 条降为 0，各级别均为 0；严格脚本审批、Dependabot 已配置。并行测试暴露缓存冲突，已按应用 root 隔离。
+
+- S5：独立工程 build/verify、双应用 E2E 均通过；归档解包逐文件比较通过，SHA-256 与 manifest 一致，缺失公开 JS 会失败；创建器 check/build 和 tgz 生成工程冻结安装、build/verify/release:archive、真实 hooks 与本地 pre-push 全部通过。GitHub/Linux 尚未运行。

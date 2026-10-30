@@ -35,7 +35,9 @@
     "audit": "vp pm audit",
     "deps:outdated": "vp pm outdated",
     "deps:approve": "vp pm approve-builds",
-    "audit:official": "vp pm audit -- --registry=https://registry.npmjs.org"
+    "audit:official": "vp pm audit -- --registry=https://registry.npmjs.org",
+    "artifacts:check": "node scripts/check-artifacts.mjs",
+    "release:archive": "vp run build && node scripts/archive.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "catalog:",
