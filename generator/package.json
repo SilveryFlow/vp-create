@@ -2,15 +2,20 @@
   "name": "create-vp-starter",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
+  "description": "Vue3 TypeScript 与 Vite+ monorepo 工程创建器",
   "bin": {
     "create-vp-starter": "bin/create.mjs"
   },
   "files": [
     "bin",
-    "templates"
+    "src",
+    "templates",
+    "templates/vue3-ts/.env",
+    "templates/vue3-ts/.env.development",
+    "templates/vue3-ts/.env.production"
   ],
+  "type": "module",
   "engines": {
-    "node": ">=22.18.0"
+    "node": ">=24.11.0 <25"
   }
 }

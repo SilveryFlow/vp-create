@@ -3,6 +3,8 @@ dist/
 dist-ssr/
 coverage/
 .vite/
+.artifacts/
+.vite-hooks/_/
 *.tgz
 *.log
 *.tsbuildinfo

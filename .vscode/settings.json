@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/node_modules": true,
+    ".artifacts": true
+  }
+}

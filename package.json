@@ -1,1 +1,29 @@
-{"name":"vp-template-hub","private":true,"type":"module","packageManager":"pnpm@11.17.0","devDependencies":{"vite-plus":"1.4.0"}}
+{
+  "name": "vp-create-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "vp hooks enable",
+    "lint": "vp lint",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "type-check": "tsc --noEmit",
+    "test": "vp test run",
+    "test:watch": "vp test",
+    "check": "vp run lint && vp run format:check && vp run type-check && vp run test",
+    "build": "node scripts/pack.mjs",
+    "test:package": "node scripts/smoke.mjs",
+    "ci": "vp run check && vp run build && vp run test:package"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@types/node": "^24.19.2",
+    "typescript": "~6.0.3",
+    "vite-plus": "1.4.0"
+  },
+  "engines": {
+    "node": ">=24.11.0 <25"
+  },
+  "packageManager": "pnpm@11.17.0"
+}
