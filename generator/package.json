@@ -12,7 +12,9 @@
     "templates",
     "templates/vue3-ts/.env",
     "templates/vue3-ts/.env.development",
-    "templates/vue3-ts/.env.production"
+    "templates/vue3-ts/.env.production",
+    "templates/monorepo/apps/web/.env",
+    "templates/monorepo/apps/admin/.env"
   ],
   "type": "module",
   "engines": {

@@ -27,7 +27,9 @@ try {
     if (!readFileSync(path.join(target, 'pnpm-lock.yaml'), 'utf8').includes('lockfileVersion:'))
       throw new Error('锁文件缺失')
     run(['install', '--frozen-lockfile'], target)
-    for (const task of ['build', 'type-check', 'lint', 'test', 'format:check'])
+    for (const task of template === 'monorepo'
+      ? ['build', 'verify', 'verify:hooks']
+      : ['build', 'type-check', 'lint', 'test', 'format:check'])
       run(['run', task], target)
   }
 } finally {
