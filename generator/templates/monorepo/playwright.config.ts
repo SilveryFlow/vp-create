@@ -9,8 +9,9 @@ export default defineConfig({
   testDir: './e2e',
   workers: 1,
   retries: process.env.CI ? 1 : 0,
-  reporter: 'list',
-  use: { trace: 'retain-on-failure' },
+  forbidOnly: Boolean(process.env.CI),
+  reporter: [['list'], ['html', { open: 'never', outputFolder: '.artifacts/playwright-report' }]],
+  use: { trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   outputDir: '.artifacts/playwright',
   projects: applications.map(app => ({
     name: app.name,
