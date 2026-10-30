@@ -1,0 +1,14 @@
+{
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "tsconfig.json": "tsconfig.*.json, env.d.ts",
+    "vite.config.*": "vitest.config.*, cypress.config.*, playwright.config.*",
+    "package.json": "package-lock.json, bun.lock, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .editorconfig, commitlint.config.js, lint-staged.config.js, cspell.config.js"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "oxc.oxc-vscode",
+  "oxc.fmt.configPath": ".oxfmtrc.json"
+}

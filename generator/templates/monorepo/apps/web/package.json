@@ -1,0 +1,20 @@
+{
+  "name": "@starter/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vue-tsc --noEmit -p tsconfig.json && vp build",
+    "preview": "vp preview",
+    "type-check": "vue-tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@starter/ui": "workspace:*",
+    "@starter/utils": "workspace:*",
+    "vue": "^3.5.32"
+  },
+  "devDependencies": {
+    "@starter/config": "workspace:*"
+  }
+}

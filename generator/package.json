@@ -1,0 +1,16 @@
+{
+  "name": "create-vp-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "create-vp-starter": "bin/create.mjs"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

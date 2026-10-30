@@ -1,0 +1,21 @@
+{
+  "printWidth": 100,
+  "singleQuote": true,
+  "semi": false,
+  "arrowParens": "avoid",
+  "quoteProps": "as-needed",
+  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "htmlWhitespaceSensitivity": "css",
+  "proseWrap": "preserve",
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "all",
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/coverage/**",
+    "**/auto-imports.d.ts",
+    "**/components.d.ts",
+    "pnpm-lock.yaml"
+  ]
+}

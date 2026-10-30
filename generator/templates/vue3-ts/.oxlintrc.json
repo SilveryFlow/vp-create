@@ -1,0 +1,10 @@
+{
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "vue", "vitest"],
+  "env": {
+    "browser": true
+  },
+  "categories": {
+    "correctness": "error"
+  },
+  "ignorePatterns": ["**/node_modules/**", "**/dist/**", "**/dist-ssr/**", "**/coverage/**"]
+}

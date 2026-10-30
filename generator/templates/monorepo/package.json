@@ -1,0 +1,26 @@
+{
+  "name": "vp-monorepo-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp run @starter/web#dev",
+    "build": "vp run -r build",
+    "type-check": "vp run -r type-check",
+    "test": "vp run -r test",
+    "lint": "vp lint",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check"
+  },
+  "devDependencies": {
+    "@types/node": "^24.12.2",
+    "@vitejs/plugin-vue": "^6.0.6",
+    "typescript": "~6.0.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+    "vite-plus": "1.4.0",
+    "vue-tsc": "^3.2.6"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "packageManager": "pnpm@11.17.0"
+}
