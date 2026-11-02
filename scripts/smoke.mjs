@@ -7,8 +7,16 @@ import { fileURLToPath } from 'node:url'
 const root = fileURLToPath(new URL('../', import.meta.url))
 const temp = mkdtempSync(path.join(os.tmpdir(), 'vp-create-smoke-'))
 const vp = process.platform === 'win32' ? 'vp.exe' : 'vp'
-const run = (args, cwd) =>
-  execFileSync(vp, args, { cwd, stdio: 'inherit', env: { ...process.env, VP_GIT_HOOKS: '0' } })
+const run = (args, cwd) => {
+  // 安装前使用外层 CLI；安装后固定使用生成工程自身的 CLI，避免继承创建器 PATH。
+  const cli = path.join(cwd, 'node_modules/vite-plus/bin/vp')
+  const installed = existsSync(cli)
+  execFileSync(installed ? process.execPath : vp, installed ? [cli, ...args] : args, {
+    cwd,
+    stdio: 'inherit',
+    env: { ...process.env, VP_GIT_HOOKS: '0' },
+  })
+}
 try {
   execFileSync('tar', ['-xzf', path.join(root, '.artifacts/create-vp-starter.tgz'), '-C', temp])
   const packaged = path.join(temp, 'package')
