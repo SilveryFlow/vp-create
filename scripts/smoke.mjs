@@ -1,11 +1,12 @@
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs'
+import { existsSync, mkdtempSync, readFileSync, realpathSync, rmSync } from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const temp = mkdtempSync(path.join(os.tmpdir(), 'vp-create-smoke-'))
+// Windows CI 的 TEMP 可能包含 8.3 短路径；统一真实路径，避免测试入口解析不一致。
+const temp = realpathSync.native(mkdtempSync(path.join(os.tmpdir(), 'vp-create-smoke-')))
 const vp = process.platform === 'win32' ? 'vp.exe' : 'vp'
 const run = (args, cwd) => {
   // 安装前使用外层 CLI；安装后固定使用生成工程自身的 CLI，避免继承创建器 PATH。
