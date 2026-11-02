@@ -35,7 +35,7 @@
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.3.1",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^20.3.1",
     "@iconify-json/ep": "^1.2.3",
     "@tsconfig/node24": "^24.0.4",
