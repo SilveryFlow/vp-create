@@ -16,7 +16,7 @@
     "ci": "vp run check && vp run build && vp run test:package"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.5.3",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^20.5.3",
     "@types/node": "^24.19.2",
     "typescript": "~6.0.3",
