@@ -5,7 +5,7 @@ catalog:
   '@changesets/cli': '^3.0.3'
   '@commitlint/cli': '^20.5.3'
   '@commitlint/config-conventional': '^20.5.3'
-  '@types/node': '^24.19.2'
+  '@types/node': '^26.6.6'
   '@vitejs/plugin-vue': '^6.0.10'
   '@vue/tsconfig': '^0.9.1'
   '@vue/test-utils': '^2.5.1'
