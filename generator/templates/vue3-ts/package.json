@@ -40,7 +40,7 @@
     "@iconify-json/ep": "^1.2.3",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.1",
-    "@types/node": "^24.12.2",
+    "@types/node": "^26.6.6",
     "@unocss/eslint-config": "^66.5.12",
     "@vitejs/plugin-vue": "^6.0.6",
     "@vitest/eslint-plugin": "^1.6.16",
